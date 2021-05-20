@@ -5,6 +5,13 @@ const User = require('../models/user')
 const auth = require('../middleware/auth')
 const multer = require('multer')
 const sharp = require('sharp')
+const bodyparser = require('body-parser')
+const cors = require('cors')
+const path = require('path')
+
+router.use( express.json() ); 
+router.use(express.urlencoded({ extended: true})); 
+router.use(cors())
 
 router.post('/users',async (req, res) => {
     const user = new User(req.body)
@@ -16,11 +23,19 @@ router.post('/users',async (req, res) => {
         res.status(400).send(e)
     }
 })
+
+router.use(express.static(path.join(__dirname, "..", "..", "frontend")))
+
+router.get("/" , async (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "..", "frontend", "html", "index.html"))
+})
+
 router.post('/users/login', async (req, res) => {
     try {
+        console.log(req.body)
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({ user, token })
+        res.sendFile(path.join(__dirname, "..", "..", "frontend", "html", "user.html"))
         // res.send(user)
     } catch (e) {
         res.status(400).send()
