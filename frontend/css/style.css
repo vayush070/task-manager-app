@@ -61,15 +61,26 @@ nav ul li a {
     background-color: #dfc0ea;
     top: 35%; 
     left:40%;
-    margin-top: 10px;
+    margin-top: 5px;
     /* display: block; */
     padding: 30px;
     padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
     border-radius: 10px;
 }
 .submit1{
     margin-left: 66px;
+    margin-bottom: 20px;
+    background-color: rgb(239, 217, 243);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+}
+.submit2{
+    margin-left: 36px;
     margin-bottom: 20px;
     background-color: rgb(239, 217, 243);
     padding-left: 20px;
@@ -106,7 +117,7 @@ nav ul li a {
 .signup-button{
     text-decoration: none;
     margin-left: 8px;
-    color: rgb(49, 39, 139);
+    color: rgb(40, 134, 134);
 }
 .boy-image{
     position:absolute;
@@ -121,4 +132,24 @@ nav ul li a {
     position: absolute;
     left: 15%;
     right: 75%;
+}
+
+.margin{
+    margin-top: 50px;
+}
+
+.welcome-sec{
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+/* user css starts here */
+.task-body{
+    margin-top: 70px;
+    margin-left: 30px;
+    background-color: yellow;
+    height: 500px;
+    width: 1000px;
+    border-radius: 10px;
 }
