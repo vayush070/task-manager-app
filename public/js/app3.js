@@ -66,8 +66,8 @@ function deleteaccount() {
     else {
         fetch('/users/deleteaccount', {
             method: 'POST'
-        }).then((response) => {
-            location.href = '/'
+        }).then(() => {
+            console.log("deleted")
         }).catch((e) => {
             console.log(e)
         })
