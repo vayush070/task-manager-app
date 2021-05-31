@@ -67,9 +67,7 @@ function deleteaccount() {
         fetch('/users/deleteaccount', {
             method: 'POST'
         }).then((response) => {
-            console.log(response.ok)
-            message1.innerHTML = `Your Account has been permanently deleted. Redirecting to login page..`
-            location.href = "/"
+            location.href = '/'
         }).catch((e) => {
             console.log(e)
         })

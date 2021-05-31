@@ -583,7 +583,7 @@ nav ul li a {
       box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.658);
   }
   .detail-card{
-      margin-right: 300px;
+      margin-left: 30px;
   }
   .tags{
       display: block;
