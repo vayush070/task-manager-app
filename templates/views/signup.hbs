@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Verma</title>
+    <title>SignUp</title>
+    <link rel="icon" href="/image/list2.png">
 
     <link rel="stylesheet" href="../css/style.css">
     <link
@@ -21,21 +22,13 @@
 </head>
 
 <body>
-    <nav>
-        <label class="head-label"><img class="img1" src="../image/book12.jpg" alt="image1"></label>
-        <ul>
-            <li><a class="active" href="/">Home</a></li>
-            <li><a class="active" href="">About</a></li>
-            <li><a class="active" href="">Services</a></li>
-            <li><a class="active" href="">Contact</a></li>
-        </ul>
-    </nav>
+    {{>header}}
     <h1 class="heading">Task Manager</h1>
     <img src="../image/boy-160174_640.png" alt="" class="boy-image">
     <img src="../image/elections-536656_1280.jpg" alt="" class="election-image">
     <div class="login-section">
         <h3 class="login-head">SignUp</h3>
-        <form action="/signup" method="post">
+        <form action="/users" method="post">
             <div class="row mb-1.5">
               
                 <div class="col-sm-10 margin">
@@ -56,11 +49,13 @@
             </div>
             
                 
-            <button type="submit" class="submit2">Create Account</button>
+            <button type="submit" class="submit2" >Create Account</button>
+            <p><div class="red-alert">{{error}}</div></p>
           </form>
 
           <p>Have an Account?   <a href="/" class="signup-button"> LogIn</a></p>
     </div>
+    <script src="/js/app2.js"></script>
 </body>
 
 </html>

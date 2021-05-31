@@ -9,7 +9,7 @@ router.post('/tasks', auth, async (req, res) => {
         ...req.body,
         owner: req.user._id
     })
-    console.log("reached")
+    // console.log("reached")
     try {
         await task.save()
         // console.log(task)
@@ -22,6 +22,14 @@ router.post('/tasks', auth, async (req, res) => {
 router.get('/test', async (req, res) => {
     
     res.render('user')
+})
+
+//get number of tasks
+router.get('/size', auth, async (req, res) => {
+    var count = 0;
+    const user = await Task.find({owner: req.user._id})
+    console.log(db.collection.count(user)) 
+    res.send(user)
 })
 
 //get all tasks

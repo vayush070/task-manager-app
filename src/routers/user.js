@@ -18,18 +18,41 @@ router.use(express.urlencoded({ extended: true }));
 
 // router.use(express.static(path.join(__dirname, "..", "..", "..", "public")))
 router.get('/', (req, res) => {
-    res.cookie("token", "macks")
+    res.clearCookie('token')
     res.render('index')
 })
-
+router.get('/profile', auth, (req, res) => {
+    res.render('profile')
+})
+router.get('/signup', (req, res) => {
+    res.render('signup')
+})
+router.get('/about', (req, res) => {
+    res.render('about')
+})
+router.get('/contact', (req, res) => {
+    res.render('contact')
+})
+router.get('/services', (req, res) => {
+    res.render('service')
+})
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
+    if(!user){
+        console.log("NO user")
+    }
     try {
         await user.save()
         const token = await user.generateAuthToken()
-        res.status(201).send({ user, token })
+        res.cookie("token", token, {
+            // expires: new Date(Date.now() + 900000)
+            // httpOnly: true
+        })
+        res.redirect("/test")
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).render('signup',{
+            error: "Email already exists"
+        })
     }
 })
 
@@ -89,26 +112,26 @@ router.post('/users/login', async (req, res) => {
 
 })
 
-router.post('/users/logout', auth, async (req, res) => {
+router.get('/users/logout', auth, async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token
         })
         await req.user.save()
 
-        res.send()
+        res.redirect("/")
     } catch (e) {
         res.status(500).send(e)
     }
 })
 
-router.post('/users/logoutAll', auth, async (req, res) => {
+router.get('/users/logoutAll', auth, async (req, res) => {
     try {
         req.user.tokens = []
 
         await req.user.save()
 
-        res.send()
+        res.redirect("/")
     } catch (e) {
         res.status(500).send(e)
     }
@@ -118,7 +141,7 @@ router.get('/users/me', auth, async (req, res) => {
 
     res.send(req.user)
 })
-router.patch('/users/me', auth, async (req, res) => {
+router.post('/users/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedupdate = ['name', 'age', 'password', 'email']
     const isvalidupdate = updates.every((updat) => allowedupdate.includes(updat))
@@ -140,12 +163,12 @@ router.patch('/users/me', auth, async (req, res) => {
         res.status(400).send(e)
     }
 })
-router.delete('/users/me', auth, async (req, res) => {
+router.post('/users/deleteaccount', auth, async (req, res) => {
     try {
 
         await req.user.remove()
 
-        res.send(req.user)
+        res.send("deleted")
     } catch (e) {
         res.status(400).send(e)
     }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="icon" href="/image/list2.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@200&family=Open+Sans&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    {{>header}}
+    <div class="button-profile float-right">
+        <button class="profile-buttons"><a href="" class="back-task" onclick="deleteaccount();">Delete Your
+                Account</a></button>
+        <button class="profile-buttons"><a href="" class="back-task">Change your Password</a></button>
+    </div>
+
+    <div class="usercard float-right">
+        <div class="back-task-container"><a href="/test" class="back-task">&larr;&nbspYour Tasks</a></div>
+        <div class="float-right">
+            <div class="profilephoto">
+                <img src="/image/avatar.png" alt="" id="avatar-s">
+            </div>
+        </div>
+        <div class="detail-card float-right">
+            <p class="user-credentials" style="display:inline;"><div class="tags">Username: &emsp;</div><input type="text" value=""
+                    id="update-input1" class="update-input">
+            <div class="userbody" id="ub1">
+                <h5 style="display:inline;" id="name"></h5>
+            </div><button class="edit-button" onclick="toggle1()"><i class="far fa-edit edit-icon"></i></button></p>
+            <p class="user-credentials" style="display:inline;"><div class="tags">Email: &emsp;</div><input type="text" value=""
+                    id="update-input2" class="update-input">
+            <div class="userbody" id="ub2">
+                <h5 style="display:inline;" id="email"></h5>
+            </div><button class="edit-button" onclick="toggle2()"><i class="far fa-edit edit-icon"></i></button></p>
+            <p class="user-credentials" style="display:inline;"><div class="tags">Age: &emsp;</div><input type="number" value=""
+                    id="update-input3" class="update-input">
+            <div class="userbody" id="ub3">
+                <h5 style="display:inline;" id="age"></h5>
+            </div><button class="edit-button" onclick="toggle3()"><i class="far fa-edit edit-icon"></i></button></p>
+            <button class="profile-buttons" onclick="updatepro();"><a href="" class="back-task">Update
+                    profile</a></button>
+                    <p id="m1"></p>
+        </div>
+        
+        
+    </div>
+
+
+
+</body>
+<script src="/js/app3.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<!-- <script>
+    console.log(document.cookie);
+</script> -->
+<!-- <script src="../../src/routers/user.js"></script> -->
+
+</html>

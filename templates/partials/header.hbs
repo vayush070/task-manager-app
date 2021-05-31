@@ -1,11 +1,23 @@
 <header>
-    <nav>
-        <label class="head-label"><img class="img1" src="../image/book12.jpg" alt="image1"></label>
-        <ul>
-            <li><a class="active" href="">Home</a></li>
-            <li><a class="active" href="">About</a></li>
-            <li><a class="active" href="">Services</a></li>
-            <li><a class="active" href="">Contact</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <label class="head-label"><img class="img1" src="../image/book12.jpg" alt="image1"></label>
+    <ul>
+      <li><a class="active" href="/test" id="preload1">Home</a></li>
+      <li><a class="active" href="/about" id="preload2">About</a></li>
+      <li><a class="active" href="/services" id="preload3">Services</a></li>
+      <li><a class="active" href="/contact" id="preload4">Contact</a></li>
+      <li>
+        <div class="dropdown" id="preload5">
+          <button class="dropbtn" id="drop-name">Account</button>
+          <div class="dropdown-content">
+            <a href="/profile">My profile</a>
+            <a href="/test">My tasks</a>
+            <a href="/users/logout">Logout&nbsp&nbsp&nbsp&nbsp<i class="fa fa-sign-out logout-icon"></i></a>
+            <a href="/users/logoutAll">Logout everywhere&nbsp&nbsp<i class="fa fa-sign-out logout-icon"></i></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <p class="author">Created by Ayush</p>
 </header>

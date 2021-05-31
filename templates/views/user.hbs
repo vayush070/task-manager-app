@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User</title>
+    <link rel="icon" href="/image/list2.png">
     <link rel="stylesheet" href="../css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@200&family=Open+Sans&family=Sacramento&display=swap"
@@ -25,15 +27,7 @@
 </head>
 
 <body>
-    <nav>
-        <label class="head-label"><img class="img1" src="../image/book12.jpg" alt="image1"></label>
-        <ul>
-            <li><a class="active" href="/">Home</a></li>
-            <li><a class="active" href="">About</a></li>
-            <li><a class="active" href="">Services</a></li>
-            <li><a class="active" href="">Contact</a></li>
-        </ul>
-    </nav>
+    {{>header}}
 
 
     <div class="popup" id="popup-id">
@@ -67,12 +61,12 @@
                     </div>
                 </div>
 
-
                 <button type="submit" class="submit1 submit11" id="click-task">Add</button>
                 {{!-- <p id="m1"> </p> --}}
             </form>
         </div>
     </div>
+    <div class="loader"></div>
     <h2 class="welcome-sec">
         <div id="username_wel">
             <div>
