@@ -16,7 +16,7 @@ router.use(express.urlencoded({ extended: true }));
 
 
 
-// router.use(express.static(path.join(__dirname, "..", "..", "..", "public")))
+
 router.get('/', (req, res) => {
     res.clearCookie('token')
     res.render('index')
@@ -38,7 +38,7 @@ router.get('/services', (req, res) => {
 })
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
-    if(!user){
+    if (!user) {
         console.log("NO user")
     }
     try {
@@ -50,36 +50,15 @@ router.post('/users', async (req, res) => {
         })
         res.redirect("/test")
     } catch (e) {
-        res.status(400).render('signup',{
+        res.status(400).render('signup', {
             error: "Email already exists"
         })
     }
 })
 
-// router.use(express.static(path.join(__dirname, "..", "..", "frontend")))
-
-// router.get("/" , async (req, res) => {
-//     res.sendFile(path.join(__dirname, "..", "..", "frontend", "html", "index.html"))
-// })
-// router.get('/users/login', async (req, res) => {
-
-// })
 router.post('/users/login', async (req, res) => {
     try {
-        // res.cookie("token", "daldhaskdjahsd");
-        // console.log(req.body)
         const user = await User.findByCredentials(req.body.email, req.body.password)
-
-        // // res.send({ user, token })
-        // // var email = await document.getElementById("inputEmail3")
-        // // var click = await document.getElementById("click")
-
-        // // // console.log(email)
-        // // click.onclick = function() {
-        // //     console.log(email.value)
-        // // }
-
-        // // console.log(typeof(token))
         if (!user) {
             throw new Error()
         }
@@ -90,21 +69,6 @@ router.post('/users/login', async (req, res) => {
                 // httpOnly: true
             }).send()
         }
-
-        // console.log(req.cookies.token)
-        // const token1 = req.cookies.token;
-        // console.log(cookie)
-        // res.send(user)
-        // console.log("going1")
-        // window.localStorage.setItem("value1", true);
-        // localStorage.setItem('token2', "token2")
-        // console.log(localStorage.getItem('token'))
-
-        // const t = localStorage.getItem('token')
-        // console.log(t)
-        // console.log("going2")
-        // res.redirect("/tasks")
-        // res.render('user')
         return
     } catch (e) {
         res.status(400).send(e)

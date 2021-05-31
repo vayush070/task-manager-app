@@ -5,19 +5,19 @@ const input2 = document.querySelector('#inputPassword3')
 // const message2 = document.querySelector('#m2')
 const message1 = document.querySelector('#m1')
 
-preload1=document.getElementById('preload1')
+preload1 = document.getElementById('preload1')
 preload1.style.cssText = 'visibility: hidden;'
 
-preload2=document.getElementById('preload2')
+preload2 = document.getElementById('preload2')
 preload2.style.cssText = 'visibility: hidden;'
 
-preload2=document.getElementById('preload3')
+preload2 = document.getElementById('preload3')
 preload2.style.cssText = 'visibility: hidden;'
 
-preload2=document.getElementById('preload4')
+preload2 = document.getElementById('preload4')
 preload2.style.cssText = 'visibility: hidden;'
 
-preload2=document.getElementById('preload5')
+preload2 = document.getElementById('preload5')
 preload2.style.cssText = 'visibility: hidden;'
 
 
@@ -26,7 +26,7 @@ inputlogin.addEventListener('submit', (e) => {
     const password = input2.value
     e.preventDefault()
     message1.textContent = ('Please Wait...')
-    
+
     fetch('/users/login', {
         method: 'POST',
         headers: {
@@ -38,38 +38,22 @@ inputlogin.addEventListener('submit', (e) => {
         })
     }).then((response) => {
         console.log(response)
-        if(!response.ok){
+        if (!response.ok) {
             throw ("Invalid Credentials!")
         }
         console.log("working")
-        // location.href = "/tasks"
         fetch('/tasks', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
-                // 'token': document.cookie.replace("token=", "")
             }
 
         }).then((response) => {
             console.log("ayush1")
             return response.json()
-            // // data = response.json(); 
-            // response.json().then((data) => {
-            //     // console.log(data[0].status);
-            //     // message2.textContent = (data[0].status)
-            //     // location.href = "/test"
-            // })
-            // // console.log(data[0])
-            // // location.href ="/test"
         }).then((data) => {
             console.log(data)
-            
-            // fetch('/test').then(() => {
-            //     document.querySelector('#m2').innerHTML = '<h1>Hello</h1>'
-            // })
             location.href = "/test"
-            // document.querySelector('#m2').innerHTML = '<h1>Hello</h1>'
-            
         }).catch((err) => {
             console.log(err)
         })

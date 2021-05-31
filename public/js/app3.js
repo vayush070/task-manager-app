@@ -1,7 +1,7 @@
 
-fetch('/users/me').then((response)=>{
+fetch('/users/me').then((response) => {
     return response.json()
-}).then((data)=>{
+}).then((data) => {
     const name = data.name
     const email = data.email
     const age = data.age
@@ -10,8 +10,8 @@ fetch('/users/me').then((response)=>{
     document.getElementById('email').innerHTML = email
     document.getElementById('age').innerHTML = age
     document.getElementById('update-input1').value = name
-document.getElementById('update-input2').value = email
-document.getElementById('update-input3').value = age
+    document.getElementById('update-input2').value = email
+    document.getElementById('update-input3').value = age
 })
 
 const message1 = document.querySelector('#m1')
@@ -23,7 +23,7 @@ function updatepro() {
     message1.innerHTML = `Updating...`
     fetch('/users/me', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json;charset=utf-8'},
+        headers: { 'Content-Type': 'application/json;charset=utf-8' },
         body: JSON.stringify({
             name: newname,
             email: newemail,
@@ -36,9 +36,9 @@ function updatepro() {
 
         data = response.json()
         document.getElementById('name').innerHTML = data.name
-    document.getElementById('email').innerHTML = data.email
-    document.getElementById('age').innerHTML = data.age
-    location.href = '/profile'
+        document.getElementById('email').innerHTML = data.email
+        document.getElementById('age').innerHTML = data.age
+        location.href = '/profile'
     }).catch((error) => {
         console.log(error)
         message1.innerHTML = `<div class="red-alert">${error}</div>`
@@ -60,19 +60,19 @@ function toggle3() {
 
 function deleteaccount() {
     var r = confirm("Are you sure you want to permanently delete your Account!")
-    if (r==false){
-       location.href = "/profile"
+    if (r == false) {
+        location.href = "/profile"
     }
-    else{
-        fetch('/users/deleteaccount',{
+    else {
+        fetch('/users/deleteaccount', {
             method: 'POST'
         }).then((response) => {
             console.log(response.ok)
             message1.innerHTML = `Your Account has been permanently deleted. Redirecting to login page..`
             location.href = "/"
-        }).catch((e)=> {
+        }).catch((e) => {
             console.log(e)
         })
     }
-    
+
 }

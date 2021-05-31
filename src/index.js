@@ -2,7 +2,7 @@ const express = require('express')
 require('./db/mongoose')
 const userRouter = require('./routers/user')
 const taskRouter = require('./routers/task')
-const path= require('path')
+const path = require('path')
 const cookieParser = require('cookie-parser')
 const hbs = require('hbs')
 
@@ -27,6 +27,6 @@ app.use(taskRouter)
 app.use(cookieParser())
 
 
-app.listen(port,() => {
+app.listen(port, () => {
     console.log('server is up on port ' + port)
 })
